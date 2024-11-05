@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: coral;
+        }
+
+        .main {
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/create">Create User</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+    </div>
+    <h1>Home page</h1>
+
+    <div class="main">
+        <p>List user.</p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Active</th>
+            </tr>
+            <% let numid=1 %>
+                <% for (let i=0; i < listUsers.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= listUsers[i].id %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].name %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].email %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].city %>
+                        </td>
+                        <td>
+                            <a href="/update/<%= listUsers[i].id %>">Edit</a>
+                            <a href="/delete/<%= listUsers[i].id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+        </table>
+    </div>
+</body>
+
+</html>
